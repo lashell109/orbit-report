@@ -10,7 +10,7 @@ export class OrbitListComponent implements OnInit {
   @Input() satellites: Satellite[];
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   sort(column: string): void {
