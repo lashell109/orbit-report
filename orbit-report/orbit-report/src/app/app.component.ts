@@ -18,8 +18,6 @@ export class AppComponent {
  
     window.fetch(satellitesUrl).then(function(response) {
       response.json().then(function(data) {
-    window.fetch(satellitesUrl).then(function(response) {
-      response.json().then(function(data) {
  
           let fetchedSatellites = data.satellites;
           // TODO: loop over satellites
@@ -28,22 +26,14 @@ export class AppComponent {
           for (let i = 0; i < fetchedSatellites.length; i++) {
             let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
             this.sourceList.push(satellite); 
-            }
-
-      }.bind(this));
-          let fetchedSatellites = data.satellites;
-          for (let i = 0; i < fetchedSatellites.length; i++) {
-            let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
-            this.sourceList.push(satellite);
-          }
-          this.displayList = this.sourceList.slice(0);
+            this.displayList = this.sourceList.slice(0);
+           }
+          
       }.bind(this));
     }.bind(this));
- 
-    } 
-  }
+  } 
   
- search(searchTerm: string): void {
+  search(searchTerm: string): void {
   let matchingSatellites: Satellite[] = [];
   searchTerm = searchTerm.toLowerCase();
   for (let i=0; i < this.sourceList.length; i++) {
